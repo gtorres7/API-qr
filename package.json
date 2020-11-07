@@ -1,0 +1,21 @@
+{
+  "name": "api-qr",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "env-cmd -f ./.env nodemon src /app.js"
+  },
+  "repository": "git@github.com:gtorres7/API-qr.git",
+  "author": "gtorres7 <gtorres6@ucol.mx>",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.13",
+    "nodemon": "^2.0.6",
+    "validator": "^13.1.17"
+  }
+}

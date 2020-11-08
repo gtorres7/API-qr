@@ -1,0 +1,5 @@
+### get all clients
+GET http://localhost:5050/users/all
+
+### test
+GET http://localhost:5050/test

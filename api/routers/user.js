@@ -4,7 +4,16 @@ const auth = require ('../middleware/auth')
 
 const router = express.Router()
 
-router.post('/users', async (req, res) => {
+router.get('/all', async (req, res) => {
+   try {
+      const users = await User.find()
+      res.status(200).send({users})
+   } catch (error) {
+      res.status(400).send(error)
+   }
+})
+
+router.post('/', async (req, res) => {
    // registrar usuario
    try {
       const user = new User(req.body)
@@ -16,7 +25,7 @@ router.post('/users', async (req, res) => {
    }
 })
 
-router.post('/users/login', async(req, res) => {
+router.post('/login', async(req, res) => {
    //login
    try {
       const { email, password } = req.body
@@ -32,12 +41,12 @@ router.post('/users/login', async(req, res) => {
 
 })
 
-router.get('/users/me', auth, async(req, res) => {
+router.get('/me', auth, async(req, res) => {
    // ver perfil de usuario logeado
    res.send(req.user)
 })
 
-router.post('/users/me/logout', auth, async (req, res) => {
+router.post('/me/logout', auth, async (req, res) => {
    // Log user out of the application
    try {
       req.user.tokens = req.user.tokens.filter((token) => {
@@ -50,7 +59,7 @@ router.post('/users/me/logout', auth, async (req, res) => {
    }
 })
 
-router.post('/users/me/logoutall', auth, async(req, res) => {
+router.post('/me/logoutall', auth, async(req, res) => {
    // Log user out of all devices
    try {
       req.user.tokens.splice(0, req.user.tokens.length)

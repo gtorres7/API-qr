@@ -12,17 +12,19 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Welcome
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta: { allowAnonymous: true }
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register
+    component: Register,
+    meta: { allowAnonymous: true }
   },
   {
     path: '/welcome',
@@ -36,5 +38,15 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
+/* TODO: hacer esto
+router.beforeEach((to, from, next) => {
+  if (to.meta.allowAnonymous || isLoggedIn()) // is logedin es una funcion de paco
+    next()
+  else
+    next('/login')
+})
+*/
 
 export default router

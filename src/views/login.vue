@@ -54,6 +54,7 @@
 
             localStorage.setItem('token', data.token)
             //router.push('/clients')
+            this.$router.push('/welcome');
         }
         catch (e) {
           console.error(e)

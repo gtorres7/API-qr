@@ -52,8 +52,8 @@
                 {email, password}
             )
 
-            localStorage.setItem('token', data.token)
-            //router.push('/clients')
+            this.$store.commit('setToken', data.token)
+            this.$store.commit('setUserName', data.userName)
             this.$router.push('/welcome');
         }
         catch (e) {

@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "author": "gtorres7 <gtorres6@ucol.mx>",
   "scripts": {
-    "start": "node api/index.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "dev:api": "nodemon api/index.js",
     "dev:vue": "vue-cli-service serve --port 8080",
-    "dev:api": "nodemon api/index.js"
+    "start": "node api/index.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -21,11 +21,15 @@
     "nodemon": "^2.0.6",
     "validator": "^13.1.17",
     "vue": "^2.6.11",
-    "vuetify": "^2.2.11"
+    "vue-router": "^3.2.0",
+    "vuetify": "^2.2.11",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "^4.5.8",
+    "@vue/cli-plugin-vuex": "^4.5.8",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",

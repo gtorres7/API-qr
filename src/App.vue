@@ -38,23 +38,13 @@
     </v-app-bar>
 
     <v-main>
-      <Login/>
+      <router-view class="container"/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Login from './components/login';
-
 export default {
   name: 'App',
-
-  components: {
-    Login,
-  },
-
-  data: () => ({
-    //
-  }),
 };
 </script>

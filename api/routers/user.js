@@ -4,6 +4,8 @@ const auth = require ('../middleware/auth')
 
 const router = express.Router()
 
+/* for debugging purposes
+returns all users
 router.get('/all', async (req, res) => {
    try {
       const users = await User.find()
@@ -12,8 +14,10 @@ router.get('/all', async (req, res) => {
       res.status(400).send(error)
    }
 })
+*/
 
-router.post('/', async (req, res) => {
+
+router.post('/register', async (req, res) => {
    // registrar usuario
    try {
       const user = new User(req.body)
@@ -41,11 +45,13 @@ router.post('/login', async(req, res) => {
 
 })
 
+// ver perfil de usuario logeado
 router.get('/me', auth, async(req, res) => {
-   // ver perfil de usuario logeado
-   res.send(req.user)
+   const {name} = req.user
+   res.send({userName: name})
 })
 
+/*
 router.post('/me/logout', auth, async (req, res) => {
    // Log user out of the application
    try {
@@ -58,7 +64,9 @@ router.post('/me/logout', auth, async (req, res) => {
       res.status(500).send(error)
    }
 })
+*/
 
+/*
 router.post('/me/logoutall', auth, async(req, res) => {
    // Log user out of all devices
    try {
@@ -69,5 +77,6 @@ router.post('/me/logoutall', auth, async(req, res) => {
       res.status(500).send(error)
    }
 })
+*/
 
 module.exports = router

@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "author": "gtorres7 <gtorres6@ucol.mx>",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "node api/index.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "nodemon api/index.js"
+    "dev:vue": "vue-cli-service serve --port 8080",
+    "dev:api": "nodemon api/index.js"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "bcryptjs": "^2.4.3",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",

@@ -25,6 +25,7 @@
           </v-card-actions>
         </v-form>
       </v-card-text>
+      
     </v-card>
   </v-container>
 </template>
@@ -52,8 +53,7 @@
                 {email, password}
             )
 
-            this.$store.commit('setToken', data.token)
-            this.$store.commit('setUserName', data.userName)
+            this.$store.dispatch('reciveToken', data.token)
             this.$router.push('/welcome');
         }
         catch (e) {

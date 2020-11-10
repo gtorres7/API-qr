@@ -17,7 +17,7 @@ export default {
     const token = localStorage.getItem('token')
 
     if (token)
-      this.$store.commit('setToken', token)
+      this.$store.dispatch('reciveToken', token)
   },
 
   components: {

@@ -49,7 +49,7 @@
 
     methods: {
       logout() {
-        this.$store.commit('removeToken')
+        this.$store.dispatch('removeToken')
       }
     }
   }

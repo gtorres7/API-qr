@@ -38,18 +38,21 @@
 </template>
 
 <script>
+  import store from '../store'
+
   export default {
     name: 'NavBar',
 
-      computed: {
+    computed: {
       isLoggedIn() {
-        return !!this.$store.state.token
+        return !!store.state.token
       }
     },
 
     methods: {
       logout() {
-        this.$store.dispatch('removeToken')
+        store.dispatch('removeToken')
+        this.$router.push('/login');
       }
     }
   }

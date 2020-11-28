@@ -7,6 +7,8 @@ import Welcome from '../views/welcome.vue'
 import Scan from '../views/scan.vue'
 import Session from '../views/session.vue'
 
+import { isLoggedIn } from '../utils/auth'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -51,13 +53,11 @@ const router = new VueRouter({
 })
 
 
-/* TODO: hacer esto
 router.beforeEach((to, from, next) => {
-  if (to.meta.allowAnonymous || isLoggedIn()) // is logedin es una funcion de paco
+  if (to.meta.allowAnonymous || isLoggedIn())
     next()
   else
     next('/login')
 })
-*/
 
 export default router

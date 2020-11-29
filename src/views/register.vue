@@ -56,7 +56,7 @@
         const {email, password, name} = this
         try {
             const {data} = await axios.post(
-                '/users/register',
+                'api/users/register',
                 {name, email, password}
             )
 

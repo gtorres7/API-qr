@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card v-if="this.show == 'session'" class="mx-auto my-12" width="500px">
+    <v-card class="mx-auto my-12" width="500px">
       <v-card-title>
         <h1 class="display-1">session</h1>
       </v-card-title>
@@ -13,18 +13,21 @@
 
 <script>
   import axios from 'axios'
+  import {getCoordinates} from '../utils/geo'
  // import QRCode from 'qrcode';
 
   export default {
     async mounted () {
-      try {
-        const {data} = await axios.get( '/new-session', {
-            headers: {
-              token: "Bearer " + localStorage.getItem("token"),
-            }
-          })
+      let {coords} = await getCoordinates()
+      coords = {
+        long: coords.longitude,
+        lat: coords.latitude
+      }
 
-       console.log(data.id) //QRCode con canvas
+      try {
+        const {data} = await axios.post('/api/session/new', {coords})
+
+       console.log({data})
       }
       catch (e) {
         console.error(e)

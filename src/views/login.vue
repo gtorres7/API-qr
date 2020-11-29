@@ -49,7 +49,7 @@
         const {email, password} = this
         try {
             const {data} = await axios.post(
-                '/users/login',
+                '/api/users/login',
                 {email, password}
             )
 

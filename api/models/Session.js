@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const sessionSchema = mongoose.Schema({
-   teacherId: {
+   sessionOwnerId: {
       type: String,
       required: true
    },
@@ -12,6 +12,7 @@ const sessionSchema = mongoose.Schema({
    attendats:[{
       type: String
    }]
+   
 })
 
 sessionSchema.statics.findByTeacher = async (teacherId) => {
@@ -23,6 +24,6 @@ sessionSchema.statics.findByTeacher = async (teacherId) => {
    return session
 }
 
-const Session = mongoose.model('Session', SessionSchema)
+const Session = mongoose.model('Session', sessionSchema)
 
 module.exports = Session

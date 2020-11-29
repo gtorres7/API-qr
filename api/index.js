@@ -4,12 +4,12 @@ require('./db/db')
 
 const history = require('connect-history-api-fallback');
 const express = require('express')
-const userRouter = require('./routers/user')
+const apiRouter = require('./routers/apiRouter')
 
 const app = express()
 
 app.use(express.json())
-app.use('/users', userRouter)
+app.use('/api', apiRouter)
 
 app.use(history())
 app.use(express.static('dist'))

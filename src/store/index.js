@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import jwtDecode from 'jwt-decode'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -29,12 +30,15 @@ export default new Vuex.Store({
       
       const {name} = jwtDecode(token);
       context.commit('setUserName', name)
+      
+      axios.defaults.headers.common['token'] = `Bearer ${token}`
     },
 
     removeToken (context) {
       context.commit('setToken', null)
       localStorage.removeItem('token')
       context.commit('setUserName', null)
+      delete axios.defaults.headers.common['token']
     }
   }
 })
